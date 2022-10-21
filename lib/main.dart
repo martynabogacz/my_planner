@@ -5,6 +5,11 @@ import 'firebase_options.dart';
 import 'dart:math';
 import 'package:flutter/material.dart';
 
+
+
+
+
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
