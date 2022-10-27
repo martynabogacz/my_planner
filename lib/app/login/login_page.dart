@@ -15,6 +15,7 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   var errorMessage = '';
+  var isCreatingAccount = false;
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +26,7 @@ class _LoginPageState extends State<LoginPage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Text('Please log in'),
+              Text(isCreatingAccount == true ? 'Sign in' : 'Log in'),
               TextField(
                 controller: widget.emailController,
                 decoration: const InputDecoration(hintText: "Email"),
@@ -41,19 +42,62 @@ class _LoginPageState extends State<LoginPage> {
               Text(errorMessage),
               ElevatedButton(
                 onPressed: () async {
-                  try {
-                    await FirebaseAuth.instance.signInWithEmailAndPassword(
-                      email: widget.emailController.text,
-                      password: widget.passwordController.text,
-                    );
-                  } catch (error) {
-                    setState(() {
-                      errorMessage = error.toString();
-                    });
+                  if (isCreatingAccount == true) {
+                    try {
+                      await FirebaseAuth.instance
+                          .createUserWithEmailAndPassword(
+                        email: widget.emailController.text,
+                        password: widget.passwordController.text,
+                      );
+                    } catch (error) {
+                      setState(() {
+                        errorMessage = error.toString();
+                      });
+                    }
+                    //rejestracja
+                  } else {
+                    try {
+                      await FirebaseAuth.instance.signInWithEmailAndPassword(
+                        email: widget.emailController.text,
+                        password: widget.passwordController.text,
+                      );
+                    } catch (error) {
+                      setState(() {
+                        errorMessage = error.toString();
+                      });
+                    }
+                    //logowanie
                   }
                 },
-                child: const Text("Log in"),
+                child: Text(isCreatingAccount == true ? 'Sign in' : 'Log in'),
               ),
+              const SizedBox(
+                height: 20,
+              ),
+              if (isCreatingAccount == false) ...[
+                TextButton(
+                  onPressed: () {
+                    setState(
+                      () {
+                        isCreatingAccount = true;
+                      },
+                    );
+                  },
+                  child: const Text('Create account'),
+                ),
+              ],
+              if (isCreatingAccount == true) ...[
+                TextButton(
+                  onPressed: () {
+                    setState(
+                      () {
+                        isCreatingAccount = false;
+                      },
+                    );
+                  },
+                  child: const Text('Already have an account?'),
+                ),
+              ],
             ],
           ),
         ),
