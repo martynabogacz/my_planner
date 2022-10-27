@@ -2,6 +2,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:my_planner/app/home/home_page.dart';
+import 'package:my_planner/app/login/login_page.dart';
 import 'firebase_options.dart';
 import 'dart:math';
 import 'package:flutter/material.dart';
@@ -41,23 +43,16 @@ class RootPage extends StatelessWidget {
         builder: (context, snapshot) {
           final user = snapshot.data;
           if (user == null) {
-            return const Scaffold(
-              body: Center(
-                child: Text("Unlogged user"),
-              ),
-            );
+            return LoginPage();
           }
-          return Scaffold(
-            appBar: AppBar(
-              title: Text("My planner"),
-            ),
-            body: Center(
-              child: Text('You are logged as ${user.email}'),
-            ),
-          );
+          return HomePage(user: user);
         });
   }
 }
+
+
+
+
 
 class FirstPage extends StatelessWidget {
   FirstPage({
