@@ -61,6 +61,12 @@ class FirstPage extends StatelessWidget {
                     Text("First page"),
                     SizedBox(height: 20),
                     ElevatedButton(
+                      child: const Text("Back"),
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },
+                    ),
+                    ElevatedButton(
                       child: Text("OK"),
                       onPressed: () {
                         Navigator.of(context).push(

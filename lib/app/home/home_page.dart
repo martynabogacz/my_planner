@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:my_planner/app/first_page/first_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({
@@ -16,7 +17,21 @@ class HomePage extends StatelessWidget {
         title: const Text("My planner"),
       ),
       body: Center(
-        child: Text('You are logged as ${user.email}'),
+        child: Column(
+          children: [
+            Text('You are logged as ${user.email}'),
+            ElevatedButton(
+              child: const Text("Start"),
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (_) => FirstPage(),
+                  ),
+                );
+              },
+            ),
+          ],
+        ),
       ),
     );
   }
