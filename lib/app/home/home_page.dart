@@ -19,7 +19,19 @@ class HomePage extends StatelessWidget {
       body: Center(
         child: Column(
           children: [
-            Text('You are logged as ${user.email}'),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text('You are logged as ${user.email}'),
+                const SizedBox(height: 20),
+                ElevatedButton(
+                  onPressed: () {
+                    FirebaseAuth.instance.signOut();
+                  },
+                  child: const Text("Log out"),
+                ),
+              ],
+            ),
             ElevatedButton(
               child: const Text("Start"),
               onPressed: () {
