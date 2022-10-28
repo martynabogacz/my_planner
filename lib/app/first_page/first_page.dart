@@ -52,8 +52,15 @@ class FirstPage extends StatelessWidget {
                               .doc(document.id)
                               .delete();
                         },
-                        child: CategoryWidget(
-                          document['title'],
+                        child: Row(
+                          children: [
+                            CategoryWidget(
+                              document['title'],
+                            ),
+                            CategoryWidget(
+                              document['time'].toString(),
+                            ),
+                          ],
                         ),
                       ),
                     ],

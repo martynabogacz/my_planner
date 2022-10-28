@@ -1,6 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:my_planner/app/first_page/first_page.dart';
+import 'package:my_planner/app/home/add_activity/add_activity_page_content.dart';
+import 'package:my_planner/app/home/calendar/calendar_page_content.dart';
+import 'package:my_planner/app/home/my_account/my_account_page_content.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({
@@ -25,44 +27,12 @@ class _HomePageState extends State<HomePage> {
       ),
       body: Builder(builder: (context) {
         if (currentIndex == 0) {
-          return const Center(
-            child: Text("Jeden"),
-          );
+          return const CalendarPageContent();
         }
         if (currentIndex == 1) {
-          return const Center(
-            child: Text("dwa"),
-          );
+          return const AddActivityPageContent();
         }
-        return Center(
-          child: Column(
-            children: [
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text('You are logged as ${widget.user.email}'),
-                  const SizedBox(height: 20),
-                  ElevatedButton(
-                    onPressed: () {
-                      FirebaseAuth.instance.signOut();
-                    },
-                    child: const Text("Log out"),
-                  ),
-                ],
-              ),
-              ElevatedButton(
-                child: const Text("Start"),
-                onPressed: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (_) => FirstPage(),
-                    ),
-                  );
-                },
-              ),
-            ],
-          ),
-        );
+        return MyAccountPageContent(email: widget.user.email);
       }),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: currentIndex,
@@ -82,3 +52,9 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
+
+
+
+
+
+
