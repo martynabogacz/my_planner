@@ -11,7 +11,7 @@ class CategoryWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        color: Colors.amber,
+        color: Colors.transparent,
         padding: const EdgeInsets.all(20),
         margin: const EdgeInsets.all(20),
         child: Text(title));

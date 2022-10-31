@@ -33,7 +33,7 @@ class MyAccountPageContent extends StatelessWidget {
             onPressed: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
-                  builder: (_) => FirstPage(),
+                  builder: (_) => const FirstPage(),
                 ),
               );
             },
