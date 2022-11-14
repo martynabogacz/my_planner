@@ -30,7 +30,11 @@ class _HomePageState extends State<HomePage> {
           return const CalendarPageContent();
         }
         if (currentIndex == 1) {
-          return const AddActivityPageContent();
+          return AddActivityPageContent(onSave: () {
+            setState(() {
+              currentIndex = 0;
+            });
+          });
         }
         return MyAccountPageContent(email: widget.user.email);
       }),
@@ -52,9 +56,3 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
-
-
-
-
-
-

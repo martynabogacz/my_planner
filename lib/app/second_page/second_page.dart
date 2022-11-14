@@ -16,7 +16,7 @@ class SecondPage extends StatelessWidget {
           backgroundColor: result == true ? Colors.green : Colors.red,
         ),
         body: Center(
-          child: Column(
+            child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               if (result == true) const Text("Prawda"),
@@ -35,3 +35,4 @@ class SecondPage extends StatelessWidget {
         ));
   }
 }
+
