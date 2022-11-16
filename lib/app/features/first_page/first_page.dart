@@ -1,5 +1,5 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
-import 'package:my_planner/app/second_page/second_page.dart';
+import 'package:my_planner/app/features/second_page/second_page.dart';
 import 'package:flutter/material.dart';
 
 class FirstPage extends StatefulWidget {

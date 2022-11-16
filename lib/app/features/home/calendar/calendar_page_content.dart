@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:my_planner/app/home/calendar/cubit/calendar_cubit.dart';
+import 'package:my_planner/app/features/home/calendar/cubit/calendar_cubit.dart';
 import 'package:my_planner/app/widgets/category_widget.dart';
 
 class CalendarPageContent extends StatelessWidget {
@@ -59,7 +59,6 @@ class CalendarPageContent extends StatelessWidget {
                   ],
                 ),
               );
-
             },
           ),
         ),

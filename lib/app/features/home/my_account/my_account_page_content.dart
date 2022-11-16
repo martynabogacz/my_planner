@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:my_planner/app/first_page/first_page.dart';
+import 'package:my_planner/app/features/first_page/first_page.dart';
 
 class MyAccountPageContent extends StatelessWidget {
   const MyAccountPageContent({

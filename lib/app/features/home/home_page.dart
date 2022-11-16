@@ -1,8 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:my_planner/app/home/add_activity/add_activity_page_content.dart';
-import 'package:my_planner/app/home/calendar/calendar_page_content.dart';
-import 'package:my_planner/app/home/my_account/my_account_page_content.dart';
+import 'package:my_planner/app/features/home/add_activity/add_activity_page_content.dart';
+import 'package:my_planner/app/features/home/calendar/calendar_page_content.dart';
+import 'package:my_planner/app/features/home/my_account/my_account_page_content.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({
