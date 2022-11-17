@@ -37,7 +37,7 @@ class CalendarCubit extends Cubit<CalendarState> {
       ..onError((error) {
         emit(
           CalendarState(
-            documents: [],
+            documents: const [],
             errorMessage: error.toString(),
             isLoading: true,
           ),

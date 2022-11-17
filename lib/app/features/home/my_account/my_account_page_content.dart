@@ -1,5 +1,6 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:my_planner/app/cubit/root_cubit.dart';
 import 'package:my_planner/app/features/first_page/first_page.dart';
 
 class MyAccountPageContent extends StatelessWidget {
@@ -18,11 +19,12 @@ class MyAccountPageContent extends StatelessWidget {
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              const SizedBox(height: 50),
               Text('You are logged as $email'),
               const SizedBox(height: 20),
               ElevatedButton(
                 onPressed: () {
-                  FirebaseAuth.instance.signOut();
+                  context.read<RootCubit>().signOut();
                 },
                 child: const Text("Log out"),
               ),
